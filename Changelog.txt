@@ -1,0 +1,2 @@
+﻿Fixed NullRefereince in VOIDCore_Generic.Dispose, where onSkinChanged was null at beginning of flight
+Fixed NullReference in VOID_Data.upcomingManeuverNodes, which showed up when terminating a simulation in KRASH

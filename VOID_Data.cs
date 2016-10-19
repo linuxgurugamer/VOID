@@ -885,7 +885,8 @@ namespace VOID
 		{
 			get
 			{
-				if (Core.Vessel == null ||
+				if (Core == null ||
+                    Core.Vessel == null ||
 				    Core.Vessel.patchedConicSolver == null ||
 				    Core.Vessel.patchedConicSolver.maneuverNodes == null)
 				{
@@ -1370,7 +1371,7 @@ namespace VOID
 				flightCore.onForEachPart += crewCountPerPart;
 			}
 		}
-
+        
 		private static void onFlightModulesDestroyed(object sender)
 		{
 			if (sender is VOIDCore_Flight)

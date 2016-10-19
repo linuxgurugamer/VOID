@@ -140,34 +140,35 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
+    <None Include="GameData\VOID\Textures\ATM_VOID.cfg" />
+    <None Include="GameData\VOID\VOID.version" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\_KSPAssemblies\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\_KSPAssemblies\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\_KSPAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\_KSPAssemblies\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="ToadicusTools">
+      <HintPath>..\ToadicusTools\bin\Debug\ToadicusTools.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="VesselSimulator">
+      <HintPath>..\VesselSimulator\VOID\GameData\VOID\Plugins\VesselSimulator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ToadicusTools\ToadicusTools.csproj">
-      <Project>{D48A5542-6655-4149-BC27-B27DF0466F1C}</Project>
-      <Name>ToadicusTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VesselSimulator\VesselSimulator.csproj">
-      <Project>{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}</Project>
-      <Name>VesselSimulator</Name>
-    </ProjectReference>
+    <Content Include="Changelog.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="GameData\VOID\Textures\ATM_VOID.cfg" />
-  </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <PostBuildEvent>xcopy /Y $(TargetPath) $(ProjectDir)GameData\$(ProjectName)\Plugins\</PostBuildEvent>
   </PropertyGroup>

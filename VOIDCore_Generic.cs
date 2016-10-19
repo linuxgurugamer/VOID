@@ -1251,20 +1251,24 @@ namespace VOID
 		{
 			this.StopGUI();
 
-			this.onSkinChanged(this);
+            if (this.onSkinChanged != null)
+                this.onSkinChanged(this);
 
-			if (this.AppLauncherButton != null)
+            if (this.AppLauncherButton != null)
 			{
-				ApplicationLauncher.Instance.RemoveModApplication(this.AppLauncherButton);
+
+                ApplicationLauncher.Instance.RemoveModApplication(this.AppLauncherButton);
 				this.AppLauncherButton = null;
 			}
-			if (this.ToolbarButton != null)
+
+            if (this.ToolbarButton != null)
 			{
-				this.ToolbarButton.Destroy();
+
+                this.ToolbarButton.Destroy();
 				this.ToolbarButton = null;
 			}
 
-			_instance = null;
+            _instance = null;
 			_initialized = false;
 		}
 	}
