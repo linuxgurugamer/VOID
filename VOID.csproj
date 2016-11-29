@@ -34,7 +34,7 @@
     </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_win|AnyCPU' ">
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -154,7 +154,7 @@
       <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\System.dll</HintPath>
     </Reference>
     <Reference Include="ToadicusTools">
-      <HintPath>..\ToadicusTools\bin\Debug\ToadicusTools.dll</HintPath>
+      <HintPath>..\ToadicusTools\bin\Release\ToadicusTools.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>R:\KSP_1.1.4_dev\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>

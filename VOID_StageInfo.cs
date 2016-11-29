@@ -4,6 +4,7 @@
 // copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 //using KerbalEngineer.VesselSimulator;
+using KerbalEngineer.VesselSimulator;
 using KSP;
 using System;
 using System.Collections.Generic;
