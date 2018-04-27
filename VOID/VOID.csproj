@@ -159,6 +159,10 @@
       <HintPath>R:\KSP_1.4.1_dev\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="ToadicusTools, Version=0.22.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.4.1_dev\GameData\ToadicusTools\Plugins\ToadicusTools.dll</HintPath>
+    </Reference>
     <Reference Include="ToolbarControl">
       <HintPath>R:\KSP_1.4.1_dev\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
     </Reference>
@@ -182,11 +186,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ToadicusTools\ToadicusTools\ToadicusTools.csproj">
-      <Project>{d48a5542-6655-4149-bc27-b27df0466f1c}</Project>
-      <Name>ToadicusTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\VesselSimulator\VesselSimulator\VesselSimulator.csproj">
+    <ProjectReference Include="..\VesselSimulator\VesselSimulator.csproj">
       <Project>{30fd6c0b-d36e-462f-b0ff-f0fac9c666cf}</Project>
       <Name>VesselSimulator</Name>
     </ProjectReference>

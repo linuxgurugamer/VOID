@@ -24,32 +24,14 @@
 # 0:1.3
 
 # 1:GAMEDIR, VERSIONFILE [, GITHUBREPO ]
-1:KerbalHotSeat, KerbalHotSeat.version
+1:VOID, VOID.version
 
 # 2:PROJNAME, PROJFILE, VERSIONFILE, PLUGINSFOLDER
-2:KerbalHotSeat,KerbalHotSeat/KerbalHotSeat.csproj,KerbalHotSeat.version,GameData/KerbalHotSeat/Plugins
+2:VesselSimulator,VesselSimulator/VesselSimulator.csproj,VOID.version,GameData/VOID/Plugins
+2:VOID,VOID/VOID.csproj,VOID.version,GameData/VOID/Plugins
 
 # 3:SOURCEFILE, DESTDIR
-3:KerbalHotSeat.version,GameData/KerbalHotSeat
-#3:LICENSE.md,GameData/KerbalHotSeat
-#3:README.md,GameData/KerbalHotSeat
-
-# 4:SOURCDIR, DESTDIR
-#4:Textures,GameData/ManeuverQueue/Textures
-
-# 5:ModuleManager
-# 5:ModuleManager
-
-# 6:mod_id
-#6:1272
-
-# 7: AdditionalFolders in the GameData, 1 per line
-# Special case if files are in the GameData directory itself
-# Special Case:    7:GameData
-#7:ConnectedLivingSpace
-
-# 8: AdditionalMods to include
-#8:ConnectedLivingSpace
+3:VOID.version,GameData/VOID
 
 #
 # End of file
