@@ -560,6 +560,7 @@ namespace VOID
 			{
 				case GameScenes.EDITOR:
 					InputLockManager.SetControlLock(
+					ControlTypes.EDITOR_LOCK |
 						ControlTypes.EDITOR_ICON_HOVER | ControlTypes.EDITOR_ICON_PICK |
 						ControlTypes.EDITOR_PAD_PICK_COPY | ControlTypes.EDITOR_PAD_PICK_COPY,
 						this.inputLockName

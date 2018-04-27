@@ -47,12 +47,26 @@ using ToadicusTools.Extensions;
 
 namespace VOID
 {
+    public class ThisGameObject
+    {
+        static internal GameObject thisGameObject;
+        internal static void Destroy(UnityEngine.Object go)
+        {
+            UnityEngine.Object.Destroy(go);
+        }
+
+    }
 	public abstract class VOIDMaster<T> : MonoBehaviour
 		where T : VOIDCore_Generic<T>, new()
 	{
 		protected T Core;
 
-		public abstract void Awake();
+        void Start()
+        {
+            ThisGameObject.thisGameObject = this.gameObject;
+        }
+
+        public abstract void Awake();
 
 		public virtual void Update()
 		{

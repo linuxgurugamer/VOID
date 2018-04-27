@@ -271,7 +271,7 @@ namespace VOID
 						return double.NaN;
 					}
 
-					return Core.LastStage.totalResourceMass;
+					return Core.LastStage.resourceMass;
 				},
 				"tons"
 			);
@@ -566,7 +566,7 @@ namespace VOID
 					dir = vesselTransform.InverseTransformDirection(dir);
 
 					Vector3 thrustOffset = VectorTools.PointDistanceToLine(
-						pos, dir.normalized, Core.Vessel.findLocalCenterOfMass());
+						pos, dir.normalized, Core.Vessel.CoM);
 
 					Logging.PostDebugMessage(typeof(VOID_Data), "vesselThrustOffset:\n" +
 					"\tthrustPos: {0}\n" +
@@ -576,7 +576,7 @@ namespace VOID
 						pos,
 						dir.normalized,
 						thrustOffset,
-						Core.Vessel.findWorldCenterOfMass()
+						Core.Vessel.CoM
 					);
 
 					return thrustOffset;
@@ -885,7 +885,8 @@ namespace VOID
 		{
 			get
 			{
-				if (Core.Vessel == null ||
+				if (Core == null ||
+                    Core.Vessel == null ||
 				    Core.Vessel.patchedConicSolver == null ||
 				    Core.Vessel.patchedConicSolver.maneuverNodes == null)
 				{
@@ -1146,7 +1147,7 @@ namespace VOID
 				delegate()
 				{
 					double orbitRadius = Core.Vessel.mainBody.Radius +
-					                     Core.Vessel.mainBody.GetAltitude(Core.Vessel.findWorldCenterOfMass());
+					                     Core.Vessel.mainBody.GetAltitude(Core.Vessel.CoM);
 					return (VOIDCore.Constant_G * Core.Vessel.mainBody.Mass) /
 					(orbitRadius * orbitRadius);
 				},
@@ -1370,7 +1371,7 @@ namespace VOID
 				flightCore.onForEachPart += crewCountPerPart;
 			}
 		}
-
+        
 		private static void onFlightModulesDestroyed(object sender)
 		{
 			if (sender is VOIDCore_Flight)

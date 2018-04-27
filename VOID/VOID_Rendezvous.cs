@@ -202,7 +202,7 @@ namespace VOID
 
 					GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
 					GUILayout.Label("Distance:");
-					GUILayout.Label(SIFormatProvider.ToSI((Vessel.findWorldCenterOfMass() - v.findWorldCenterOfMass()).magnitude, 3) + "m", GUILayout.ExpandWidth(false));
+					GUILayout.Label(SIFormatProvider.ToSI((Vessel.CoM - v.CoM).magnitude, 3) + "m", GUILayout.ExpandWidth(false));
 					GUILayout.EndHorizontal();
 
 					// Toadicus edit: added local sidereal longitude.
@@ -272,7 +272,7 @@ namespace VOID
 
 					GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
 					GUILayout.Label("Distance:");
-					GUILayout.Label(SIFormatProvider.ToSI((Vessel.findWorldCenterOfMass() - v.findWorldCenterOfMass()).magnitude, 3) + "m", GUILayout.ExpandWidth(false));
+					GUILayout.Label(SIFormatProvider.ToSI((Vessel.CoM - v.CoM).magnitude, 3) + "m", GUILayout.ExpandWidth(false));
 					GUILayout.EndHorizontal();
 				}
 			}

@@ -1,0 +1,11 @@
+﻿1.1.7
+	Code updated with the new calculations from KER
+	The code has been updated for 1.4
+	Added support for the ToolbarController
+	Added support for the ClickThroughBlocker
+	The setting for the Blizzy toolbar has been removed and is now controlled by the Toolbar Controller
+
+1.1.6
+	Fixed NullRefereince in VOIDCore_Generic.Dispose, where onSkinChanged was null at beginning of flight
+	Fixed NullReference in VOID_Data.upcomingManeuverNodes, which showed up when terminating a simulation in KRASH
+

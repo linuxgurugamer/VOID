@@ -69,7 +69,7 @@ namespace VOID
 					ToadicusTools.Logging.PostDebugMessage (string.Format (
 						"VOID: Dirtying config for type {0}." +
 						"\n\t Old Value: {1}, New Value: {2}" +
-						"\n\t Object.Equals(New, Old): {3}\n" +
+						"\n\t Object.Equals(New, Old): {3}\n" ,
 						this._type,
 						this._value,
 						value,

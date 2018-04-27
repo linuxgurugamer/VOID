@@ -80,7 +80,7 @@ namespace VOID
 
 		public virtual float saveTimer { get; protected set; }
 
-		public abstract GUISkin Skin { get; }
+		public virtual GUISkin Skin { get; protected set; }
 
 		public abstract CelestialBody HomeBody { get; }
 		public abstract List<CelestialBody> SortedBodyList { get; protected set; }
