@@ -27,7 +27,7 @@
 	int i2 = 0;
 	string s;
 
-	string versionfile =  @"D:\Users\jbb\github\Toadicus\VOID\GameData\VOID\VOID.version";
+	string versionfile =  @"D:\Users\jbb\github\Toadicus\VOID\VOID.version";
 	if (!File.Exists(versionfile))
 	{
 		Write("File: " + versionfile + " missing\n");		

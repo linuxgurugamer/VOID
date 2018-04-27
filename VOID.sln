@@ -1,9 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOID", "VOID.csproj", "{45ACC1CC-942C-4A66-BFC7-8BE375938B18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VOID", "VOID\VOID.csproj", "{45ACC1CC-942C-4A66-BFC7-8BE375938B18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{397D9964-D21B-45C5-A3D1-AD914F995FD8}"
+	ProjectSection(SolutionItems) = preProject
+		buildRelease.bat = buildRelease.bat
+		Changelog.txt = Changelog.txt
+		deploy.bat = deploy.bat
+		jenkins.txt = jenkins.txt
+		Readme.md = Readme.md
+		VOID.version = VOID.version
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToadicusTools", "..\ToadicusTools\ToadicusTools\ToadicusTools.csproj", "{D48A5542-6655-4149-BC27-B27DF0466F1C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF} = {30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VesselSimulator", "..\VesselSimulator\VesselSimulator\VesselSimulator.csproj", "{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +38,27 @@ Global
 		{45ACC1CC-942C-4A66-BFC7-8BE375938B18}.Release_linux|Any CPU.Build.0 = Release_linux|Any CPU
 		{45ACC1CC-942C-4A66-BFC7-8BE375938B18}.Release_win|Any CPU.ActiveCfg = Release_win|Any CPU
 		{45ACC1CC-942C-4A66-BFC7-8BE375938B18}.Release_win|Any CPU.Build.0 = Release_win|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Debug_linux|Any CPU.ActiveCfg = Debug_linux|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Debug_linux|Any CPU.Build.0 = Debug_linux|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Debug_win|Any CPU.ActiveCfg = Debug_win|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Debug_win|Any CPU.Build.0 = Debug_win|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Release_linux|Any CPU.ActiveCfg = Release_linux|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Release_linux|Any CPU.Build.0 = Release_linux|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Release_win|Any CPU.ActiveCfg = Release_win|Any CPU
+		{D48A5542-6655-4149-BC27-B27DF0466F1C}.Release_win|Any CPU.Build.0 = Release_win|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Debug_linux|Any CPU.ActiveCfg = Debug_linux|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Debug_linux|Any CPU.Build.0 = Debug_linux|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Debug_win|Any CPU.ActiveCfg = Debug_win|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Debug_win|Any CPU.Build.0 = Debug_win|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Release_linux|Any CPU.ActiveCfg = Release_linux|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Release_linux|Any CPU.Build.0 = Release_linux|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Release_win|Any CPU.ActiveCfg = Release_win|Any CPU
+		{30FD6C0B-D36E-462F-B0FF-F0FAC9C666CF}.Release_win|Any CPU.Build.0 = Release_win|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E59775F2-1B46-4260-967C-BAF5154AAB88}
 	EndGlobalSection
 EndGlobal

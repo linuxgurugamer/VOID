@@ -40,6 +40,7 @@ using ToadicusTools.Extensions;
 using ToadicusTools.GUIUtils;
 using ToadicusTools.Wrappers;
 using UnityEngine;
+using ToolbarControl_NS;
 
 namespace VOID
 {
@@ -49,7 +50,10 @@ namespace VOID
         /*
 		 * Fields
 		 * */
-        protected string VoidName = "VOID";
+        internal const string MODID = "coreToggle";
+        internal const string MODNAME = "VOID";
+
+//        protected string VoidName = "VOID";
         protected string VoidVersion;
 
         [AVOID_SaveValue("configValue")]
@@ -63,9 +67,6 @@ namespace VOID
         protected string VOIDIconOnInactivePath;
         protected string VOIDIconOffActivePath;
         protected string VOIDIconOffInactivePath;
-
-        [AVOID_SaveValue("useToolbarManager")]
-        protected VOID_SaveValue<bool> useToolbarManager;
 
         protected GUIStyle iconStyle;
 
@@ -130,8 +131,9 @@ namespace VOID
 
         public override bool configDirty { get; set; }
 
-        protected IButton ToolbarButton;
-        protected ApplicationLauncherButton AppLauncherButton;
+        //protected IButton ToolbarButton;
+        //protected ApplicationLauncherButton AppLauncherButton;
+        ToolbarControl toolbarControl;
         protected IconState iconState;
 
         /*
@@ -333,17 +335,11 @@ namespace VOID
             if (!this.GUIStylesLoaded)
             {
                 this.LoadGUIStyles();
-
-                Logging.PostDebugMessage(
-                    this,
-                    "ToolbarAvailable: {0}, UseToobarManager: {1}",
-                    ToolbarManager.ToolbarAvailable,
-                    this.useToolbarManager);
             }
 
             if (
                 this.iconState != (this.powerState | this.activeState) ||
-                (this.VOIDIconTexture == null && this.AppLauncherButton != null)
+                (this.VOIDIconTexture == null/*  && this.AppLauncherButton != null */)
             )
             {
                 this.iconState = this.powerState | this.activeState;
@@ -474,61 +470,19 @@ namespace VOID
                 }
             }
 
-            if (ToolbarManager.ToolbarAvailable && this.useToolbarManager)
+            if (toolbarControl == null)
             {
-                if (this.ToolbarButton == null)
-                {
-                    this.ToolbarButton = ToolbarManager.Instance.add(this.VoidName, "coreToggle");
-                    this.ToolbarButton.Text = this.VoidName;
-                    this.SetIconTexture(this.powerState | this.activeState);
-
-                    this.ToolbarButton.Visible = true;
-
-                    this.ToolbarButton.OnClick +=
-                        (e) =>
-                        {
-                            this.ToggleMainWindow();
-                        };
-
-                    Logging.PostDebugMessage(string.Format("{0}: Toolbar Button initialized.", this.GetType().Name));
-                }
-
-                if (this.AppLauncherButton != null)
-                {
-                    ApplicationLauncher.Instance.RemoveModApplication(this.AppLauncherButton);
-                    this.AppLauncherButton = null;
-                }
+                toolbarControl = ThisGameObject.thisGameObject.AddComponent<ToolbarControl>();
+                toolbarControl.AddToAllToolbars(this.ToggleMainWindow, this.ToggleMainWindow,
+                    this.appIconVisibleScenes,
+                    MODID,
+                    "voidButton",
+                    "",
+                    "",
+                    MODNAME
+                );
             }
-            else
-            {
-                if (this.AppLauncherButton == null)
-                {
-                    if (ApplicationLauncher.Instance != null)
-                    {
-                        this.AppLauncherButton = ApplicationLauncher.Instance.AddModApplication(
-                            this.ToggleMainWindow, this.ToggleMainWindow,
-                            this.appIconVisibleScenes,
-                            this.VOIDIconTexture
-                        );
-
-                        Logging.PostDebugMessage(
-                            this,
-                            "AppLauncherButton initialized in {0}",
-                            Enum.GetName(
-                                typeof(GameScenes),
-                                HighLogic.LoadedScene
-                            )
-                        );
-                    }
-                }
-
-                if (this.ToolbarButton != null)
-                {
-                    this.ToolbarButton.Destroy();
-                    this.ToolbarButton = null;
-                }
-            }
-
+            this.SetIconTexture(this.powerState | this.activeState);
             if (this.onUpdate != null)
             {
                 this.onUpdate(this);
@@ -699,8 +653,7 @@ namespace VOID
         public override void DrawConfigurables()
         {
             GUIContent _content;
-
-            this.useToolbarManager.value = Layout.Toggle(this.useToolbarManager, "Use Blizzy's Toolbar If Available");
+            
 
             this.vesselSimActive.value = Layout.Toggle(this.vesselSimActive.value,
                 "Enable Engineering Calculations");
@@ -1136,6 +1089,7 @@ namespace VOID
 
         protected void SetIconTexture(string texturePath)
         {
+#if false
             if (texturePath == null)
             {
                 return;
@@ -1152,6 +1106,9 @@ namespace VOID
 
                 this.AppLauncherButton.SetTexture(VOIDIconTexture);
             }
+#endif
+            if (toolbarControl != null)
+                toolbarControl.SetTexture(texturePath.Replace("icon", "appIcon"), texturePath);
         }
 
         public void LoadConfig()
@@ -1238,8 +1195,7 @@ namespace VOID
             this.UpdateTimer = 0f;
 
             this.vesselSimActive = (VOID_SaveValue<bool>)true;
-
-            this.useToolbarManager = (VOID_SaveValue<bool>)ToolbarManager.ToolbarAvailable;
+            
 
             this.SaveGamePath = string.Format("{0}saves/{1}", IOTools.KSPRootPath, HighLogic.SaveFolder);
             this.VOIDSettingsPath = string.Format("{0}/VOIDConfig.xml", this.SaveGamePath);
@@ -1267,19 +1223,20 @@ namespace VOID
 
             if (this.onSkinChanged != null)
                 this.onSkinChanged(this);
-
+#if false
             if (this.AppLauncherButton != null)
             {
 
                 ApplicationLauncher.Instance.RemoveModApplication(this.AppLauncherButton);
                 this.AppLauncherButton = null;
             }
-
-            if (this.ToolbarButton != null)
+#endif
+            if (this.toolbarControl != null)
             {
 
-                this.ToolbarButton.Destroy();
-                this.ToolbarButton = null;
+                toolbarControl.OnDestroy();
+                ThisGameObject.Destroy(toolbarControl);
+                this.toolbarControl = null;
             }
 
             _instance = null;
