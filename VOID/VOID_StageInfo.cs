@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using ToadicusTools.GUIUtils;
 using UnityEngine;
+using ClickThroughFix;
 
 namespace VOID
 {
@@ -120,7 +121,7 @@ namespace VOID
 
 			if (this.showBodyList)
 			{
-				GUILayout.Window(core.WindowID, this.bodyListPos, this.BodyPickerWindow, string.Empty);
+				ClickThruBlocker.GUILayoutWindow(core.WindowID, this.bodyListPos, this.BodyPickerWindow, string.Empty);
 			}
 		}
 

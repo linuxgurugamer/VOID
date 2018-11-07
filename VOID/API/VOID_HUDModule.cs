@@ -33,6 +33,7 @@ using System.Collections.Generic;
 using System.Text;
 using ToadicusTools.GUIUtils;
 using UnityEngine;
+using ClickThroughFix;
 
 namespace VOID
 {
@@ -114,12 +115,12 @@ namespace VOID
 			{
 				window = this.Windows[idx];
 
-				window.WindowPos = GUILayout.Window(
+				window.WindowPos =ClickThruBlocker.GUILayoutWindow(
 					this.core.WindowID,
 					window.WindowPos,
 					VOID_Tools.GetWindowHandler(window.WindowFunction),
-					GUIContent.none,
-					GUIStyle.none
+                    ""
+
 				);
 			}
 		}

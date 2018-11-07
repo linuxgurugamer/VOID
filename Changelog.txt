@@ -1,8 +1,12 @@
-﻿1.1.7
+﻿1.1.8
+	Version bump for 1.5 rebuild
+	Added support for the ClickThroughBlocker
+	Fixed obsolete call to RequestResource, now using the double version rather than the old float version
+
+1.1.7
 	Code updated with the new calculations from KER
 	The code has been updated for 1.4
 	Added support for the ToolbarController
-	Added support for the ClickThroughBlocker
 	The setting for the Blizzy toolbar has been removed and is now controlled by the Toolbar Controller
 
 1.1.6

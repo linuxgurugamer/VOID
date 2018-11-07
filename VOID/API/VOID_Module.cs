@@ -34,6 +34,7 @@ using System.Reflection;
 using ToadicusTools.Extensions;
 using ToadicusTools.GUIUtils;
 using UnityEngine;
+using ClickThroughFix;
 
 namespace VOID
 {
@@ -518,7 +519,7 @@ namespace VOID
 
 			Rect _Pos = this.WindowPos;
 
-			_Pos = GUILayout.Window(
+			_Pos = ClickThruBlocker.GUILayoutWindow(
 				this.core.WindowID,
 				_Pos,
 				VOID_Tools.GetWindowHandler(this.ModuleWindow),

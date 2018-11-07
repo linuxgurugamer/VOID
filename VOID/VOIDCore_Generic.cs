@@ -517,9 +517,9 @@ namespace VOID
                 this.Vessel.vesselType != VesselType.EVA &&
                 TimeWarp.deltaTime != 0)
             {
-                float powerReceived = this.Vessel.rootPart.RequestResource(
+                double powerReceived = this.Vessel.rootPart.RequestResource(
                     this.resourceName,
-                    this.resourceRate * TimeWarp.fixedDeltaTime
+                    (double)this.resourceRate * TimeWarp.fixedDeltaTime
                 );
 
                 if (powerReceived > 0)
