@@ -1,4 +1,7 @@
-﻿1.1.7.1
+﻿1.1.8.1
+	Version bump to fix CKAN
+
+1.1.7.1
 	Version bump for 1.5 rebuild
 	Added support for the ClickThroughBlocker
 	Fixed obsolete call to RequestResource, now using the double version rather than the old float version
