@@ -952,6 +952,8 @@ namespace VOID
             }
         }
 
+       
+
         protected void LoadSkins()
         {
             this.validSkins = new Dictionary<string, GUISkin>();
@@ -965,9 +967,12 @@ namespace VOID
 
                 if (!this.forbiddenSkins.Contains(skin.name))
                 {
-                    Logging.PostLogMessage("[{0}]: Found skin: {1}", this.GetType().Name, skin.name);
-                    this.validSkins[skin.name] = skin;
-                    this.skinNames.Add(skin.name);
+                    if (!this.skinNames.Contains(skin.name))
+                    {
+                        Logging.PostLogMessage("[{0}]: Found skin: {1}", this.GetType().Name, skin.name);
+                        this.validSkins[skin.name] = skin;
+                        this.skinNames.Add(skin.name);
+                    }
                 }
             }
 

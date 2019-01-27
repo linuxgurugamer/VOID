@@ -45,16 +45,19 @@ namespace VOID
 		protected HUDWindow leftHUD;
 		protected HUDWindow rightHUD;
 
-		/*
+        /*
 		 * Properties
 		 * */
 
-		/* 
+        /* 
 		 * Methods
 		 * */
-		public VOID_HUD() : base()
+
+        public VOID_HUD() : base()
 		{
-			this.Name = "Heads-Up Display";
+
+
+            this.Name = "Heads-Up Display";
 
 			this.Active = true;
 

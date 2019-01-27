@@ -92,7 +92,11 @@ namespace VOID
 			this.Windows = new List<HUDWindow>();
 		}
 
-		public override void DrawGUI(object sender)
+        Texture2D t;
+        bool tSet = false;
+        public static GUISkin transparentSkin;
+
+        public override void DrawGUI(object sender)
 		{
 			if (this.core == null)
 			{
@@ -110,19 +114,37 @@ namespace VOID
 				SimManager.RequestSimulation();
 			}
 
+            if (!tSet)
+            {
+                tSet = true;
+                t = new Texture2D(1, 1);
+                t.SetPixel(0, 0, new Color(0, 0, 0, 0));
+                t.Apply();
+                transparentSkin = UnityEngine.Object.Instantiate(GUI.skin);
+                transparentSkin.window.normal.background = t;
+                transparentSkin.window.onNormal.background = t;
+            }
+            if (GUI.skin.name != "KSPSkin")
+                GUI.skin = transparentSkin;
 			HUDWindow window;
 			for (int idx = 0; idx < this.Windows.Count; idx++)
 			{
 				window = this.Windows[idx];
-
-				window.WindowPos =ClickThruBlocker.GUILayoutWindow(
-					this.core.WindowID,
-					window.WindowPos,
-					VOID_Tools.GetWindowHandler(window.WindowFunction),
-                    ""
-
-				);
-			}
+                if (GUI.skin.name != "KSPSkin")
+				    window.WindowPos =GUILayout.Window(
+					    this.core.WindowID,
+					    window.WindowPos,
+					    VOID_Tools.GetWindowHandler(window.WindowFunction),
+                        ""
+				    );
+                else
+                    window.WindowPos = ClickThruBlocker.GUILayoutWindow(
+                        this.core.WindowID,
+                        window.WindowPos,
+                        VOID_Tools.GetWindowHandler(window.WindowFunction),
+                        ""
+                    );
+            }
 		}
 
 		public override void DrawConfigurables()

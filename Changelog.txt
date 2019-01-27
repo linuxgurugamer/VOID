@@ -1,4 +1,7 @@
-﻿1.1.8.1
+﻿1.1.9
+	Fixed HUD transparency.  As of 1.5, the skins weren't transparent, had to add code to make the HUD skins transparent
+
+1.1.8.1
 	Version bump to fix CKAN
 
 1.1.7.1

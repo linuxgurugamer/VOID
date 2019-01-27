@@ -198,14 +198,21 @@
     <PostBuildEvent>
 start /D D:\Users\jbb\github\Toadicus\VOID /WAIT deploy.bat  $(TargetDir) $(TargetFileName)
 
+
+
 if $(ConfigurationName) == Release_win (
-	start /D D:\Users\jbb\github\Toadicus\VOID /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
+
+start /D D:\Users\jbb\github\Toadicus\VOID /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
+
+
 )
 </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
 set textTemplatingPath="%25ProgramFiles(x86)%25\Microsoft Visual Studio\2017\Community\Common7\IDE \texttransform.exe"
+
+
 
 
 
