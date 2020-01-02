@@ -22,15 +22,17 @@ namespace KerbalEngineer.VesselSimulator
     #region Using Directives
 
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Reflection;
-    using System.Threading;
+    //using System.Threading;
     using UnityEngine;
 
     #endregion
 
-    public class SimManager
+    [KSPAddon(KSPAddon.Startup.Instantly, true)]
+    public class SimManager:MonoBehaviour
     {
         #region Constants
 
@@ -41,6 +43,7 @@ namespace KerbalEngineer.VesselSimulator
 
         #region Fields
 
+        private static SimManager Instance;
         public static bool dumpTree = false;
         public static bool logOutput = false;
         public static LogMsg log = new LogMsg();
@@ -100,6 +103,10 @@ namespace KerbalEngineer.VesselSimulator
 
         #region Methods
 
+        void Awake()
+        {
+            Instance = this;
+        }
         private static void CheckForMods()
         {
             hasCheckedForMods = true;
@@ -244,9 +251,12 @@ namespace KerbalEngineer.VesselSimulator
 
         public static void RequestSimulation()
         {
+UnityEngine.            Debug.Log("RequestSimulation 1");
             if (!hasCheckedForMods)
             {
+                UnityEngine.Debug.Log("RequestSimulation 2");
                 CheckForMods();
+                UnityEngine.Debug.Log("RequestSimulation 3");
             }
 
             lock (locker)
@@ -257,6 +267,8 @@ namespace KerbalEngineer.VesselSimulator
                     timer.Start();
                 }
             }
+            UnityEngine.Debug.Log("RequestSimulation 4");
+
         }
 
         public static bool ResultsReady()
@@ -290,7 +302,8 @@ namespace KerbalEngineer.VesselSimulator
             LastStage = null;
         }
 
-        private static void RunSimulation(object simObject)
+        //private static void RunSimulation(object simObject)
+        private   IEnumerator RunSimulation(object simObject)
         {
             try
             {
@@ -342,6 +355,7 @@ namespace KerbalEngineer.VesselSimulator
             }
 
             logOutput = false;
+            return null;
         }
 
         private static void StartSimulation()
@@ -373,7 +387,9 @@ namespace KerbalEngineer.VesselSimulator
                 // This call doesn't ever fail at the moment but we'll check and return a sensible error for display
                 if (simulation.PrepareSimulation(logOutput ? log : null, parts, Gravity, Atmosphere, Mach, dumpTree, vectoredThrust))
                 {
-                    ThreadPool.QueueUserWorkItem(RunSimulation, simulation);
+                    Instance.StartCoroutine(Instance.RunSimulation(simulation));
+
+                    //ThreadPool.QueueUserWorkItem(RunSimulation, simulation);
                     //RunSimulation(simulation);
                 }
                 else

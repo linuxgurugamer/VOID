@@ -27,7 +27,14 @@
 	int i2 = 0;
 	string s;
 
-	string versionfile =  @"D:\Users\jbb\github\Toadicus\VOID\VOID.version";
+	// For Visual Studio / MSBuild Build-Time Template Resolution
+	string RootDirectory = System.IO.Path.GetDirectoryName(Host.TemplateFile) + @"\..\";
+
+	//
+	// Update the following with the name of the .version file which is in the root directory
+	//
+	string versionfile = RootDirectory + "VOID.version";
+
 	if (!File.Exists(versionfile))
 	{
 		Write("File: " + versionfile + " missing\n");		

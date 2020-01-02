@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>VesselSimulator</RootNamespace>
     <AssemblyName>VesselSimulator</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseMSBuildEngine>False</UseMSBuildEngine>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_win|AnyCPU' ">
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG; TRACE; TIMERS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
@@ -35,6 +36,7 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <ConsolePause>false</ConsolePause>
     <DefineConstants>
     </DefineConstants>
@@ -55,6 +57,7 @@
     <DefineConstants>DEBUG; TRACE; TIMERS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
@@ -71,6 +74,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
     <ConsolePause>false</ConsolePause>
     <CustomCommands>
       <CustomCommands>
@@ -103,19 +107,13 @@
     <Compile Include="MyLogger.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>R:\KSP_1.5.1_dev\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+     <Reference Include="$(KSPDIR)\KSP_x64_Data\Managed\Assembly*.dll">
+	   <Private>False</Private>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>R:\KSP_1.5.1_dev\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    <Reference Include="$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine*.dll">
+	   <Private>False</Private>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="UnityEngine">
-      <HintPath>R:\KSP_1.5.1_dev\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>R:\KSP_1.5.1_dev\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
+    <Reference Include="System" />	
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

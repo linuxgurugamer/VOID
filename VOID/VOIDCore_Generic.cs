@@ -92,7 +92,7 @@ namespace VOID
         protected VOID_SaveValue<float> resourceRate = (VOID_SaveValue<float>)0.2f;
 
         [AVOID_SaveValue("updatePeriod")]
-        protected VOID_SaveValue<double> updatePeriod = (VOID_SaveValue<double>)(1001f / 15000f);
+        protected VOID_SaveValue<double> updatePeriod = (VOID_SaveValue<double>)0.1f;// (1001f / 15000f);
         protected string stringFrequency;
 
         [AVOID_SaveValue("vesselSimActive")]
@@ -315,6 +315,7 @@ namespace VOID
         public override void DrawGUI(object sender)
         {
             this.windowID = this.windowBaseID;
+            Debug.Log("VOID_Core_Generic.cs DrawGUI");
 
             if (!this.modulesLoaded)
             {
@@ -970,6 +971,7 @@ namespace VOID
                     if (!this.skinNames.Contains(skin.name))
                     {
                         Logging.PostLogMessage("[{0}]: Found skin: {1}", this.GetType().Name, skin.name);
+                        Debug.Log("["+ this.GetType().Name+"]: Found skin: "+ skin.name);
                         this.validSkins[skin.name] = skin;
                         this.skinNames.Add(skin.name);
                     }

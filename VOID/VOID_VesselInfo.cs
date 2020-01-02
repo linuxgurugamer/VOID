@@ -27,6 +27,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using KerbalEngineer.VesselSimulator;
+using KSP.Localization;
 using KerbalEngineer.Extensions;
 using KSP;
 using System;
@@ -55,7 +56,7 @@ namespace VOID
 			GUILayout.BeginVertical();
 
 			GUILayout.Label(
-				Vessel.vesselName,
+				Localizer.GetStringByTag(Vessel.vesselName),
 				VOID_Styles.labelCenterBold,
 				GUILayout.ExpandWidth(true));
 

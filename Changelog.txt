@@ -1,4 +1,13 @@
-﻿1.1.9.1
+﻿ChangeLog
+
+1.1.10
+	Updated enums for latest version of Unity
+	Added InstallChecker
+	Updated AssemblyVersion
+	Updated for KSP 1.8
+	Changed thread for the simulations into coroutines
+
+1.1.9.1
 	Version bump to fix bad version build
 
 1.1.9

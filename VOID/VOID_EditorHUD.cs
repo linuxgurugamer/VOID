@@ -200,6 +200,7 @@ namespace VOID
 		public override void DrawGUI(object sender)
 		{
 			float hudLeft;
+			Debug.Log("VOID_EditorHUD.cs DrawGUI");
 
 			try
 			{

@@ -117,6 +117,8 @@ namespace VOID
 
 		public override void DrawGUI(object sender)
 		{
+			Debug.Log("VOID_StageInfo.cs DrawGUI");
+
 			base.DrawGUI(sender);
 
 			if (this.showBodyList)
@@ -151,9 +153,14 @@ namespace VOID
 
 			if (core.Stages == null || core.Stages.Length == 0)
 			{
+				if (core.Stages == null)
+					Debug.Log("core.Stages is null");
+				else
+					Debug.Log("Stages.Length is 0");
+
 				GUILayout.BeginVertical();
 
-				GUILayout.Label("No stage data!");
+				GUILayout.Label("No stage data!", GUILayout.Width(200));
 
 				GUILayout.EndVertical();
 

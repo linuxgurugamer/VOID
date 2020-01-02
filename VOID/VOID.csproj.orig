@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug_win</Configuration>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45ACC1CC-942C-4A66-BFC7-8BE375938B18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>VOID</RootNamespace>
+    <AssemblyName>VOID</AssemblyName>
+    <CodePage>65001</CodePage>
+    <UseMSBuildEngine>False</UseMSBuildEngine>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ReleaseVersion>0.11</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_win|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG; TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>xcopy /Y ${TargetFile} ${ProjectDir}\GameData\VOID\Plugins\</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_win|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <DefineConstants>
+    </DefineConstants>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>xcopy /Y ${TargetFile} ${ProjectDir}\GameData\VOID\Plugins\</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_linux|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG; TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>cp -afv ${TargetFile} ${ProjectDir}/GameData/${ProjectName}/Plugins/</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_linux|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command>cp -afv ${TargetFile} ${ProjectDir}/GameData/${ProjectName}/Plugins/</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="AssemblyVersion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssemblyVersion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ToolbarRegistration.cs" />
+    <Compile Include="VOID_HUD.cs" />
+    <Compile Include="VOID_Orbital.cs" />
+    <Compile Include="VOID_SurfAtmo.cs" />
+    <Compile Include="VOID_VesselInfo.cs" />
+    <Compile Include="VOID_Transfer.cs" />
+    <Compile Include="VOID_CBInfoBrowser.cs" />
+    <Compile Include="VOID_Rendezvous.cs" />
+    <Compile Include="VOID_VesselRegister.cs" />
+    <Compile Include="VOID_DataLogger.cs" />
+    <Compile Include="VOID_EditorHUD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VOID_HUDAdvanced.cs" />
+    <Compile Include="VOID_TWR.cs" />
+    <Compile Include="VOID_CareerStatus.cs" />
+    <Compile Include="VOID_StageInfo.cs" />
+    <Compile Include="VOID_Styles.cs" />
+    <Compile Include="VOID_Data.cs" />
+    <Compile Include="VOIDMaster_Flight.cs" />
+    <Compile Include="VOIDMaster_Editor.cs" />
+    <Compile Include="VOIDMaster_SpaceCentre.cs" />
+    <Compile Include="VOIDCore_SpaceCentre.cs" />
+    <Compile Include="VOIDCore_Flight.cs" />
+    <Compile Include="VOIDCore_Editor.cs" />
+    <Compile Include="VOIDCore_Generic.cs" />
+    <Compile Include="API\IVOID_Module.cs" />
+    <Compile Include="API\VOIDCore.cs" />
+    <Compile Include="API\IVOID_SaveValue.cs" />
+    <Compile Include="API\IVOID_DataValue.cs" />
+    <Compile Include="API\VOID_Module.cs" />
+    <Compile Include="Tools\VOID_Tools.cs" />
+    <Compile Include="Tools\VOID_DataValue.cs" />
+    <Compile Include="Tools\VOID_SaveValue.cs" />
+    <Compile Include="API\VOID_HUDModule.cs" />
+    <Compile Include="API\Attributes\VOID_ScenesAttribute.cs" />
+    <Compile Include="API\Attributes\AVOID_SaveValue.cs" />
+    <Compile Include="API\VOIDMaster.cs" />
+    <Compile Include="API\Attributes\VOID_GameModesAttribute.cs" />
+    <Compile Include="VOID_ConfigWindow.cs" />
+    <Compile Include="Tools\VOID_Localization.cs" />
+    <Compile Include="Tools\VOID_StageExtensions.cs" />
+    <Compile Include="API\VOID_SingletonCore.cs" />
+    <Compile Include="API\VOID_SingletonWindow.cs" />
+    <Compile Include="API\Enums.cs" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" NoTabsAfterNonTabs="False" FileWidth="120" TabsToSpaces="False" EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="GameData\VOID\Textures\ATM_VOID.cfg" />
+    <None Include="GameData\VOID\VOID.version" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.7.3_dev\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.7.3_dev\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="ClickThroughBlocker">
+      <HintPath>R:\KSP_1.7.3_dev\GameData\000_ClickThroughBlocker\Plugins\ClickThroughBlocker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="ToadicusTools, Version=0.22.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.7.3_dev\GameData\ToadicusTools\Plugins\ToadicusTools.dll</HintPath>
+    </Reference>
+    <Reference Include="ToolbarControl">
+      <HintPath>R:\KSP_1.7.3_dev\GameData\001_ToolbarControl\Plugins\ToolbarControl.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.7.3_dev\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>R:\KSP_1.7.3_dev\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssemblyVersion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AssemblyVersion.cs</LastGenOutput>
+    </Content>
+    <Content Include="Changelog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VesselSimulator\VesselSimulator.csproj">
+      <Project>{30fd6c0b-d36e-462f-b0ff-f0fac9c666cf}</Project>
+      <Name>VesselSimulator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+start /D D:\Users\jbb\github\Toadicus\VOID /WAIT deploy.bat  $(TargetDir) $(TargetFileName)
+
+
+
+if $(ConfigurationName) == Release_win (
+
+start /D D:\Users\jbb\github\Toadicus\VOID /WAIT buildRelease.bat $(TargetDir) $(TargetFileName)
+
+
+)
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+set textTemplatingPath="%25ProgramFiles(x86)%25\Microsoft Visual Studio\2017\Community\Common7\IDE \texttransform.exe"
+
+
+
+
+
+%25textTemplatingPath%25 "$(ProjectDir)AssemblyVersion.tt"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

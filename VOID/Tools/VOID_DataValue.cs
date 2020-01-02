@@ -298,7 +298,7 @@ namespace VOID
 
 			GUILayout.EndHorizontal();
 
-			if (Event.current.type == EventType.mouseUp)
+			if (Event.current.type == EventType.MouseUp)
 			{
 				Rect lastRect = GUILayoutUtility.GetLastRect();
 				if (lastRect.Contains(Event.current.mousePosition))

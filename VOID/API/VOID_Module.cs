@@ -496,7 +496,7 @@ namespace VOID
 
 			GUI.Button(closeRect, GUIContent.none, buttonStyle);
 
-			if (Event.current.type == EventType.repaint && Input.GetMouseButtonUp(0))
+			if (Event.current.type == EventType.Repaint && Input.GetMouseButtonUp(0))
 			{
 				if (closeRect.Contains(Event.current.mousePosition))
 				{
@@ -514,6 +514,7 @@ namespace VOID
 			{
 				return;
 			}
+			Debug.Log("VOID_Module.cs DrawGUI");
 
 			GUI.skin = this.core.Skin;
 
