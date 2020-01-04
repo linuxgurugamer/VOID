@@ -229,8 +229,6 @@ namespace VOID
 
 		public override void DrawGUI(object sender)
 		{
-			Debug.Log("VOID_HUDAdvanced.cs DrawGUI");
-
 			if (this.primaryHUD == null)
 			{
 				IVOID_Module module;

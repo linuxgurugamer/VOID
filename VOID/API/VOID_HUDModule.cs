@@ -102,25 +102,19 @@ namespace VOID
 			{
 				return;
 			}
-			Debug.Log("VOID_HUDModule.cs DrawGUI 1");
 			VOID_Styles.labelHud.normal.textColor = textColors [ColorIndex];
 
 			GUI.skin = this.core.Skin;
-			Debug.Log("VOID_HUDModule.cs DrawGUI 2");
 
 			if (HighLogic.LoadedSceneIsEditor ||
 				(TimeWarp.WarpMode == TimeWarp.Modes.LOW) || (TimeWarp.CurrentRate <= TimeWarp.MaxPhysicsRate)
 			)
 			{
-				Debug.Log("VOID_HUDModule.cs DrawGUI 3");
 				SimManager.RequestSimulation();
-				Debug.Log("VOID_HUDModule.cs DrawGUI 4");
 			}
-			Debug.Log("VOID_HUDModule.cs DrawGUI 5");
 
 			if (!tSet)
             {
-				Debug.Log("VOID_HUDModule.cs DrawGUI 6");
 				tSet = true;
                 t = new Texture2D(1, 1);
                 t.SetPixel(0, 0, new Color(0, 0, 0, 0));
@@ -129,14 +123,12 @@ namespace VOID
                 transparentSkin.window.normal.background = t;
                 transparentSkin.window.onNormal.background = t;
 				GUI.skin = transparentSkin;
-				Debug.Log("VOID_HUDModule.cs DrawGUI 7");
 			}
 			//if (GUI.skin.name != "KSPSkin")
 			//    GUI.skin = transparentSkin;
 			HUDWindow window;
 			for (int idx = 0; idx < this.Windows.Count; idx++)
 			{
-				Debug.Log("VOID_HUDModule.cs DrawGUI, idx: "+ idx);
 				window = this.Windows[idx];
                 if (GUI.skin.name != "KSPSkin")
 				    window.WindowPos =GUILayout.Window(

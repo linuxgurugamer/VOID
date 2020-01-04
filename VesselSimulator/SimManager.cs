@@ -251,12 +251,9 @@ namespace KerbalEngineer.VesselSimulator
 
         public static void RequestSimulation()
         {
-UnityEngine.            Debug.Log("RequestSimulation 1");
             if (!hasCheckedForMods)
             {
-                UnityEngine.Debug.Log("RequestSimulation 2");
                 CheckForMods();
-                UnityEngine.Debug.Log("RequestSimulation 3");
             }
 
             lock (locker)
@@ -267,8 +264,6 @@ UnityEngine.            Debug.Log("RequestSimulation 1");
                     timer.Start();
                 }
             }
-            UnityEngine.Debug.Log("RequestSimulation 4");
-
         }
 
         public static bool ResultsReady()

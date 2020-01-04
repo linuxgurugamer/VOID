@@ -138,8 +138,6 @@ namespace VOID
 
 		public override void DrawGUI(object sender)
 		{
-			Debug.Log("VOID_CareerStatus.cs DrawGUI");
-
 			if (Event.current.type != EventType.Layout && !this.currenciesInitialized)
 			{
 				this.initCurrencies();

@@ -1,5 +1,8 @@
 ﻿ChangeLog
 
+1.1.10.1
+	Deleted log spam (leftover debugging statements)
+
 1.1.10
 	Updated enums for latest version of Unity
 	Added InstallChecker

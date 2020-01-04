@@ -315,7 +315,6 @@ namespace VOID
         public override void DrawGUI(object sender)
         {
             this.windowID = this.windowBaseID;
-            Debug.Log("VOID_Core_Generic.cs DrawGUI");
 
             if (!this.modulesLoaded)
             {
