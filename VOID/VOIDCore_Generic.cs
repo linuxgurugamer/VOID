@@ -970,7 +970,7 @@ namespace VOID
                     if (!this.skinNames.Contains(skin.name))
                     {
                         Logging.PostLogMessage("[{0}]: Found skin: {1}", this.GetType().Name, skin.name);
-                        Debug.Log("["+ this.GetType().Name+"]: Found skin: "+ skin.name);
+                        
                         this.validSkins[skin.name] = skin;
                         this.skinNames.Add(skin.name);
                     }

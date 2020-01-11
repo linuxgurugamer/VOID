@@ -514,7 +514,6 @@ namespace VOID
 			{
 				return;
 			}
-			Debug.Log("VOID_Module.cs DrawGUI");
 
 			GUI.skin = this.core.Skin;
 

@@ -44,3 +44,7 @@ using System.Runtime.CompilerServices;
 // if desired. See the Mono documentation for more information about signing.
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
+
+[assembly: KSPAssemblyDependency("ClickThroughBlocker", 1, 0)]
+[assembly: KSPAssemblyDependency("ToolbarController", 1, 0)]
+//[assembly: KSPAssemblyDependency("ToadicusTools", 1, 0)]

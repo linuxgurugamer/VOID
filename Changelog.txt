@@ -1,5 +1,8 @@
 ﻿ChangeLog
 
+1.1.10.2
+	Removed more log spam
+
 1.1.10.1
 	Deleted log spam (leftover debugging statements)
 
